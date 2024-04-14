@@ -1,0 +1,59 @@
+﻿@model Desafio_Core.Models.Entrevista
+
+@{
+    ViewData["Title"] = "Entrevista - Edição";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edição</h1>
+
+<h4>Entrevista</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FuncionarioId" class="control-label"></label>
+                <input asp-for="FuncionarioId" class="form-control" />
+                <span asp-validation-for="FuncionarioId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Empresa" class="control-label"></label>
+                <input asp-for="Empresa" class="form-control" />
+                <span asp-validation-for="Empresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataEntrevista" class="control-label"></label>
+                <input asp-for="DataEntrevista" class="form-control" />
+                <span asp-validation-for="DataEntrevista" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salario" class="control-label"></label>
+                <input asp-for="Salario" class="form-control" />
+                <span asp-validation-for="Salario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Responsavel" class="control-label"></label>
+                <input asp-for="Responsavel" class="form-control" />
+                <span asp-validation-for="Responsavel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

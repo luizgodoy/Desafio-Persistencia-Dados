@@ -1,0 +1,29 @@
+﻿@using Desafio_Frontend_Mvc.Models
+@model FuncionarioDetalhes
+
+@{
+    ViewData["Title"] = "Histórico de entrevistas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detalhes</h1>
+<p>Nome: @Model.Funcionario.Nome</p>
+<div>
+    <h4>Entrevista Historico</h4>
+    <hr />
+    <ul>
+        @foreach (var entrevista in Model.EntrevistaHistorico)
+        {
+            <li>
+                Proposta Inicial: @entrevista.SalarioAntigo
+                Proposta Atual: @entrevista.SalarioAtual
+                Data de Alteração: @entrevista.DataAlteracao
+                Descrição: @entrevista.Descricao
+            </li>
+        }
+    </ul>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", new {id = Model.Funcionario.Id}) |
+    <a asp-action="Index">Voltar</a>
+</div>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Desafio_Core.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "Funcionários";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Lista de Funcionários</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar</a>
+</p>
+@if (Model != null && Model.Any()) {
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mae)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pai)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mae)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pai)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new {id=item.Id}) |
+                @Html.ActionLink("Histórico", "Details", new {id=item.Id}) |
+                @Html.ActionLink("Excluir", "Delete", new {id=item.Id})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+}
+else
+{
+    <p>Nenhum registro encontrado.</p>
+}
